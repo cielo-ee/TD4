@@ -6,7 +6,7 @@
 //
 // Create Date:   00:08:36 01/20/2015
 // Design Name:   TD4_top
-// Module Name:   E:/home/syu/Xilinx/TD4/TD4_test.v
+// Module Name:   TD4_test.v
 // Project Name:  TD4
 // Target Device:  
 // Tool versions:  
@@ -32,20 +32,22 @@ module TD4_test;
 
 	// Outputs
 	wire [3:0] LED;
+	wire [3:0] debug;
 
 	// Instantiate the Unit Under Test (UUT)
 	TD4_top uut (
 		.clock(clock), 
 		.reset(reset), 
 		.sw(sw), 
-		.LED(LED)
+		.LED(LED),
+		.debug(debug)
 	);
 
 	initial begin
 		// Initialize Inputs
 		clock <= 0;
 		reset <= 1'b0;
-		sw    <= 0;
+		sw    <= 4'b0000;
 
 		// Wait 100 ns for global reset to finish
 		#100;

@@ -1,13 +1,13 @@
 module TD4_top(
-		clock,reset,sw,LED
+		clock,reset,sw,LED,debug
     );
 	 input clock,reset;
 	 input  [3:0] sw;
 	 output [3:0] LED;
+	 output [3:0] debug;
 	 
 	 wire selectA;
 	 wire selectB;
-
 	 
 	 wire [3:0] OP;
 	 
@@ -82,34 +82,30 @@ module TD4_top(
 
 	 always @(posedge clock or negedge reset)
 		begin
-			if(~reset)
-			begin
+			if(~reset) begin
 				CFlag    <= 1'b0;
 				reg_outA <= 4'b0000;
 				reg_outB <= 4'b0000;
 				LED      <= 4'b0000;
 				ip       <= 4'b0000;
 			end
-			CFlag <= carry;
-			begin //register A
-				if(load[0]) 
+			else begin //リセット以外
+				CFlag <= carry;
+				if(load[0]) //reg A
 					reg_outA <= addr_out;
 				else 
 					reg_outA <= reg_outA;
-			end
-			begin //register B
-				if(load[1]) 
+					
+				if(load[1]) //reg B
 					reg_outB <= addr_out;
 				else
 					reg_outB	<= reg_outB;
-			end
-			begin //instruction pointer
-				if(load[2])
+
+				if(load[2]) //instruction pointer
 					ip <= addr_out;
 				else
 					ip <= ip+1;
-			end
-			begin
+					
 				if(load[3]) //out
 					LED  <= addr_out;
 				else
@@ -117,7 +113,8 @@ module TD4_top(
 			end
 	 end
 	 
-	 			
+	 	//debug
+	 assign debug = ip;		
 	//ram
 		initial begin
 		   ram[0]  <= 8'b10110111; 
