@@ -32,15 +32,13 @@ module TD4_test;
 
 	// Outputs
 	wire [3:0] LED;
-	wire [3:0] debug;
 
 	// Instantiate the Unit Under Test (UUT)
 	TD4_top uut (
 		.clock(clock), 
 		.reset(reset), 
 		.sw(sw), 
-		.LED(LED),
-		.debug(debug)
+		.LED(LED)
 	);
 
 	initial begin

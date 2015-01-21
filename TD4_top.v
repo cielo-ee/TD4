@@ -1,10 +1,9 @@
 module TD4_top(
-		clock,reset,sw,LED,debug
+		clock,reset,sw,LED,
     );
 	 input clock,reset;
 	 input  [3:0] sw;
 	 output [3:0] LED;
-	 output [3:0] debug;
 	 
 	 wire selectA;
 	 wire selectB;
@@ -112,9 +111,7 @@ module TD4_top(
 					LED <= LED;
 			end
 	 end
-	 
-	 	//debug
-	 assign debug = ip;		
+	 	
 	//ram
 		initial begin
 		   ram[0]  <= 8'b10110111; 
