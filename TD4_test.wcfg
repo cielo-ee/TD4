@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="E:/home/syu/Xilinx/TD4/TD4_test_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="TD4_test" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="21" />
+   <wvobject fp_name="/TD4_test/LED" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LED[3:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/sw" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sw[3:0]</obj_property>
+      <obj_property name="ObjectShortName">sw[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/sw" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sw[3:0]</obj_property>
+      <obj_property name="ObjectShortName">sw[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/selectA" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">selectA</obj_property>
+      <obj_property name="ObjectShortName">selectA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/selectB" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">selectB</obj_property>
+      <obj_property name="ObjectShortName">selectB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/OP" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">OP[3:0]</obj_property>
+      <obj_property name="ObjectShortName">OP[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/load" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">load[3:0]</obj_property>
+      <obj_property name="ObjectShortName">load[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/addr_inA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">addr_inA[3:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_inA[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/Imm" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Imm[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Imm[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/carry" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">carry</obj_property>
+      <obj_property name="ObjectShortName">carry</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/addr_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">addr_out</obj_property>
+      <obj_property name="ObjectShortName">addr_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/LED" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LED[3:0]</obj_property>
+      <obj_property name="ObjectShortName">LED[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/CFlag" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CFlag</obj_property>
+      <obj_property name="ObjectShortName">CFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/reg_outA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_outA[3:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_outA[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/reg_outB" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_outB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_outB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/ip" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ip[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ip[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TD4_test/uut/ram" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ram[15:0,7:0]</obj_property>
+      <obj_property name="ObjectShortName">ram[15:0,7:0]</obj_property>
+   </wvobject>
+</wave_config>
