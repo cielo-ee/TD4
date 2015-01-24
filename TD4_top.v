@@ -67,16 +67,16 @@ module TD4_top(
 		input [15:0] data;
 			begin
 				case(sel)
-					2'b00: mux = data[15:12];
-					2'b01: mux = data[11:8];
-					2'b10: mux = data[7:4];
-					2'b11: mux = data[3:0];
+					2'b11: mux = data[15:12];
+					2'b10: mux = data[11:8];
+					2'b01: mux = data[7:4];
+					2'b00: mux = data[3:0];
 				endcase
 			end
 		endfunction
 	  
-	  assign alu_inA = mux({selectA,selectB},
-									{reg_outA,reg_outB,sw,4'b0000});
+	  assign alu_inA = mux({selectB,selectA},
+									{4'b0000,sw,reg_outB,reg_outA});
 	  //addr
 	  assign {carry,alu_out} = alu_inA + Imm;
 
@@ -135,9 +135,9 @@ module TD4_top(
 			ram[1]  <= 8'b00110110; // mov A 0110
 			ram[2]  <= 8'b01110011; // mov B 0011
 			ram[3]  <= 8'b01111001; // mov B 1001
-			ram[4]  <= 8'b00000000; 
-			ram[5]  <= 8'b00000000; 
-			ram[6]  <= 8'b00000000; 
+			ram[4]  <= 8'b00010000; // mov A,B
+			ram[5]  <= 8'b00111100; // mov A 1100
+			ram[6]  <= 8'b01000000; // mov B,A
 			ram[7]  <= 8'b00000000; 
 			ram[8]  <= 8'b00000000; 
 			ram[9]  <= 8'b00000000; 
