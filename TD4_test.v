@@ -50,7 +50,7 @@ module TD4_test;
 		// Wait 100 ns for global reset to finish
 		#50;
 		reset <= 1'b0;
-		#155;
+		#175;
       reset <= 1'b1;
 		// Add stimulus here
 	end

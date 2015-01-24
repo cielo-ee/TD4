@@ -11,7 +11,8 @@ module TD4_top(
 	 wire [3:0] OP;
 	 
 	 wire [3:0] load;
-	 wire [3:0] addr_inA;
+	 wire [3:0] alu_inA;
+	 wire [3:0] alu_out;
 	 wire [3:0] Imm;
 	 
 	 reg CFlag;           //carry flag
@@ -49,16 +50,16 @@ module TD4_top(
 	 
 	 
 	 
-	 assign {Imm,OP}  = regfile(ip);
+	 assign {OP,Imm}  = regfile(ip);
 
 	 
 	 //decorder
 	 assign selectA = OP[0] | OP[3];
 	 assign selectB = OP[1];
-	 assign load    = { OP[2] |  OP[3],
-							 ~OP[2] |  OP[3],
-							  OP[2] | ~OP[3],
-							 ~OP[2] | ~OP[3] | (~OP[0] & CFlag) };
+	 assign load    = { ~OP[2] | ~OP[3] | (~OP[0] & CFlag),
+							   OP[2] | ~OP[3],
+							  ~OP[2] |  OP[3],
+                        OP[2] |  OP[3]	};
 		
      //multiplexer
 	  function [3:0] mux;
@@ -74,10 +75,10 @@ module TD4_top(
 			end
 		endfunction
 	  
-	  assign addr_inA = mux({selectA,selectB},
+	  assign alu_inA = mux({selectA,selectB},
 									{reg_outA,reg_outB,sw,4'b0000});
 	  //addr
-	  assign {carry,addr_out} = addr_inA + Imm;
+	  assign {carry,alu_out} = alu_inA + Imm;
 
 	 always @(posedge clock or negedge reset)
 		begin
@@ -91,22 +92,22 @@ module TD4_top(
 			else begin //リセット以外
 				CFlag <= carry;
 				if(~load[0]) //reg A
-					reg_outA <= addr_out;
+					reg_outA <= alu_out;
 				else 
 					reg_outA <= reg_outA;
 					
 				if(~load[1]) //reg B
-					reg_outB <= addr_out;
+					reg_outB <= alu_out;
 				else
 					reg_outB	<= reg_outB;
 
 				if(~load[2]) //instruction pointer
-					ip <= addr_out;
+					ip <= alu_out;
 				else
 					ip <= ip+1;
 					
 				if(~load[3]) //out
-					LED  <= addr_out;
+					LED  <= alu_out;
 				else
 					LED <= LED;
 			end
@@ -130,10 +131,10 @@ module TD4_top(
 			ram[13] <= 8'b11101010; 
 			ram[14] <= 8'b10111000; 
 			ram[15] <= 8'b11111111; */
-			ram[0]  <= 8'b10101100; // mov A 0101 
-			ram[1]  <= 8'b01101100; // mov A 0110
-			ram[2]  <= 8'b10011110; // mov B 1001
-			ram[3]  <= 8'b01011110; // mov B 1010
+			ram[0]  <= 8'b00111100; // mov A 1100 
+			ram[1]  <= 8'b00110110; // mov A 0110
+			ram[2]  <= 8'b01110011; // mov B 0011
+			ram[3]  <= 8'b01111001; // mov B 1001
 			ram[4]  <= 8'b00000000; 
 			ram[5]  <= 8'b00000000; 
 			ram[6]  <= 8'b00000000; 
