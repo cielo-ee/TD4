@@ -90,22 +90,22 @@ module TD4_top(
 			end
 			else begin //リセット以外
 				CFlag <= carry;
-				if(load[0]) //reg A
+				if(~load[0]) //reg A
 					reg_outA <= addr_out;
 				else 
 					reg_outA <= reg_outA;
 					
-				if(load[1]) //reg B
+				if(~load[1]) //reg B
 					reg_outB <= addr_out;
 				else
 					reg_outB	<= reg_outB;
 
-				if(load[2]) //instruction pointer
+				if(~load[2]) //instruction pointer
 					ip <= addr_out;
 				else
 					ip <= ip+1;
 					
-				if(load[3]) //out
+				if(~load[3]) //out
 					LED  <= addr_out;
 				else
 					LED <= LED;
@@ -130,10 +130,10 @@ module TD4_top(
 			ram[13] <= 8'b11101010; 
 			ram[14] <= 8'b10111000; 
 			ram[15] <= 8'b11111111; */
-			ram[0]  <= 8'b10100011; 
-			ram[1]  <= 8'b01100011; 
-			ram[2]  <= 8'b00000000; 
-			ram[3]  <= 8'b00000000; 
+			ram[0]  <= 8'b10101100; // mov A 0101 
+			ram[1]  <= 8'b01101100; // mov A 0110
+			ram[2]  <= 8'b10011110; // mov B 1001
+			ram[3]  <= 8'b01011110; // mov B 1010
 			ram[4]  <= 8'b00000000; 
 			ram[5]  <= 8'b00000000; 
 			ram[6]  <= 8'b00000000; 

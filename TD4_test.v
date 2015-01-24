@@ -51,7 +51,6 @@ module TD4_test;
 		#155;
       reset <= 1'b1;
 		// Add stimulus here
-		
 	end
 	
 	//clock
