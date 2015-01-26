@@ -1,5 +1,5 @@
 module TD4_top(
-		clock,reset,sw,LED,
+		clock,reset,sw,LED
     );
 	 input clock,reset;
 	 input  [3:0] sw;
@@ -114,7 +114,7 @@ module TD4_top(
 	 	
 	//ram
 		initial begin
-	/*	   ram[0]  <= 8'b10110111; 
+		   ram[0]  <= 8'b10110111; 
 			ram[1]  <= 8'b00000001; 
 			ram[2]  <= 8'b11100001; 
 			ram[3]  <= 8'b00000001; 
@@ -129,7 +129,8 @@ module TD4_top(
 			ram[12] <= 8'b00000001;
 			ram[13] <= 8'b11101010; 
 			ram[14] <= 8'b10111000; 
-			ram[15] <= 8'b11111111; */
+			ram[15] <= 8'b11111111; 
+			/*
 			ram[0]  <= 8'b00111100; // mov A 1100 
 			ram[1]  <= 8'b00110110; // mov A 0110
 			ram[2]  <= 8'b01110011; // mov B 0011
@@ -147,7 +148,7 @@ module TD4_top(
 //       ram[13] <= 8'b11100001; // jnc 0001
 			ram[13] <= 8'b00001111; // add A 1111 
 			ram[14] <= 8'b11100010; // jnc 0010
-         ram[15] <= 8'b10111010; // out 1010
+         ram[15] <= 8'b10111010; // out 1010 */
 		end
 endmodule
 
