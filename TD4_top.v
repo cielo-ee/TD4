@@ -101,15 +101,14 @@ module TD4_top(
 				else
 					reg_outB	<= reg_outB;
 
-				if(~load[2]) //instruction pointer
-					ip <= alu_out;
-				else
-					ip <= ip+1;
-					
-				if(~load[3]) //out
+				if(~load[2]) //out
 					LED  <= alu_out;
 				else
 					LED <= LED;
+				if(~load[3]) //instruction pointer
+					ip <= alu_out;
+				else
+					ip <= ip+1;	
 			end
 	 end
 	 	
@@ -140,10 +139,10 @@ module TD4_top(
 			ram[6]  <= 8'b01000000; // mov B,A
 			ram[7]  <= 8'b00001100; // add A,1100 
 			ram[8]  <= 8'b01010011; // add B,0011 
-			ram[9]  <= 8'b00000000; 
-			ram[10] <= 8'b00000000; 
-			ram[11] <= 8'b00000000; 
-			ram[12] <= 8'b00000000;
+			ram[9]  <= 8'b00100000; // in  A
+			ram[10] <= 8'b01100000; // in  B
+			ram[11] <= 8'b10110101; // out 0101
+			ram[12] <= 8'b10010000; // out B
 			ram[13] <= 8'b00000000; 
 			ram[14] <= 8'b00000000; 
 			ram[15] <= 8'b00000000; 

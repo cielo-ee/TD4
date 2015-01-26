@@ -45,7 +45,7 @@ module TD4_test;
 		// Initialize Inputs
 		clock <= 0;
 		reset <= 1'bX;
-		sw    <= 4'b0000;
+		sw    <= 4'b1010;
 
 		// Wait 100 ns for global reset to finish
 		#50;
