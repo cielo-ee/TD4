@@ -1,9 +1,38 @@
 module TD4_top(
-		clock,reset,sw,LED
-    );
+	clock,reset,sw,LED
+	);
+	
 	 input clock,reset;
 	 input  [3:0] sw;
 	 output [3:0] LED;
+	
+	 wire [3:0] ip; //instruction pointer
+	 wire [7:0] ramdata; //ramèoóÕ
+	 
+	 TD4_core TD4_core0(
+		.clock(clock),
+		.reset(reset),
+		.sw(sw),
+		.LED(LED),
+		.ip(ip),
+		.ramdata(ramdata)
+	 );
+	
+	ram16 ram16_0(
+		.data(ramdata),
+		.addr(ip)
+	);
+	
+endmodule
+
+module TD4_core(
+		clock,reset,sw,LED,ip,ramdata
+    );
+	 input clock,reset;
+	 input  [3:0] sw;
+	 input  [7:0] ramdata;
+	 output [3:0] LED;
+	 output [3:0] ip;
 	 
 	 wire selectA;
 	 wire selectB;
@@ -19,38 +48,9 @@ module TD4_top(
 	 reg [3:0] reg_outA;
 	 reg [3:0] reg_outB;
 	 reg [3:0] ip;        //instruction pointer
-	 reg [3:0] LED;       //LED out
+	 reg [3:0] LED;       //LED out 
 	 
-	 //ram
-	 reg [7:0] ram [15:0];
-	 
-	 function [7:0] regfile;
-		input [3:0] ip;
-		begin
-			case(ip)
-				4'h0: regfile = ram[0];
-				4'h1: regfile = ram[1];
-				4'h2: regfile = ram[2];
-				4'h3: regfile = ram[3];
-				4'h4: regfile = ram[4];
-				4'h5: regfile = ram[5];
-				4'h6: regfile = ram[6];
-				4'h7: regfile = ram[7];
-				4'h8: regfile = ram[8];
-				4'h9: regfile = ram[9];
-				4'hA: regfile = ram[10];
-				4'hB: regfile = ram[11];
-				4'hC: regfile = ram[12];
-				4'hD: regfile = ram[13];
-				4'hE: regfile = ram[14];
-				4'hF: regfile = ram[15];
-			endcase
-		end
-	 endfunction
-	 
-	 
-	 
-	 assign {OP,Imm}  = regfile(ip);
+	 assign {OP,Imm}  = ramdata;
 
 	 
 	 //decorder
@@ -113,7 +113,47 @@ module TD4_top(
 	 end
 	 	
 	//ram
-		initial begin
+
+endmodule
+
+
+module ram16(
+		addr,
+		data,
+	);
+	input  [3:0] addr;
+	output [7:0] data;
+	
+		 //ram
+	reg [7:0] ram [15:0];
+	
+	assign data = regfile(addr);
+	
+	function [7:0] regfile;
+		input [3:0] addr;
+		begin
+			case(addr)
+				4'h0: regfile = ram[0];
+				4'h1: regfile = ram[1];
+				4'h2: regfile = ram[2];
+				4'h3: regfile = ram[3];
+				4'h4: regfile = ram[4];
+				4'h5: regfile = ram[5];
+				4'h6: regfile = ram[6];
+				4'h7: regfile = ram[7];
+				4'h8: regfile = ram[8];
+				4'h9: regfile = ram[9];
+				4'hA: regfile = ram[10];
+				4'hB: regfile = ram[11];
+				4'hC: regfile = ram[12];
+				4'hD: regfile = ram[13];
+				4'hE: regfile = ram[14];
+				4'hF: regfile = ram[15];
+			endcase
+		end
+	 endfunction
+	
+	initial begin
 		   ram[0]  <= 8'b10110111; 
 			ram[1]  <= 8'b00000001; 
 			ram[2]  <= 8'b11100001; 
@@ -150,5 +190,5 @@ module TD4_top(
 			ram[14] <= 8'b11100010; // jnc 0010
          ram[15] <= 8'b10111010; // out 1010 */
 		end
+	
 endmodule
-
