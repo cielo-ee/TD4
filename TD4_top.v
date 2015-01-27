@@ -1,3 +1,5 @@
+`default_nettype none
+
 module TD4_top(
 	clock,reset,sw,LED
 	);
@@ -36,6 +38,7 @@ module TD4_core(
 	 
 	 wire selectA;
 	 wire selectB;
+	 wire carry;
 	 
 	 wire [3:0] OP;
 	 
