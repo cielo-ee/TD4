@@ -127,7 +127,7 @@ endmodule
 
 module ram16(
 		addr,
-		data,
+		data
 	);
 	input  [3:0] addr;
 	output [7:0] data;

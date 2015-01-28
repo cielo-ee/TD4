@@ -4,17 +4,17 @@ NET "CLK_I"  LOC = "P63"  ;
 
 #　LED出力
 
-NET "LED_O<1>"  LOC = "P17"  ; 
-NET "LED_O<2>"  LOC = "P18"  ; 
-NET "LED_O<3>"  LOC = "P22"  ; 
-NET "LED_O<4>"  LOC = "P23"  ; 
+NET "LED1_O"  LOC = "P17"  ; 
+NET "LED2_O"  LOC = "P18"  ; 
+NET "LED3_O"  LOC = "P22"  ; 
+NET "LED4_O"  LOC = "P23"  ; 
 
 # スイッチ入力
 
-NET "SW1_I"  LOC = "P30"  ; 
-NET "SW2_I"  LOC = "P27"  ; 
-NET "SW3_I"  LOC = "P26" ; 
-NET "SW4_I"  LOC = "P24" ; 
+NET "SW1_I"  LOC = "P30" ; 
+#NET "SW2_I"  LOC = "P27" ; 
+#NET "SW3_I"  LOC = "P26" ; 
+#NET "SW4_I"  LOC = "P24" ; 
 
 # 7セグメントLED・点灯有効ライン
 
