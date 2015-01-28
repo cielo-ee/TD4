@@ -53,8 +53,10 @@ module TD4_core(
 	 reg [3:0] ip;        //instruction pointer
 	 reg [3:0] LED;       //LED out 
 	 
-	 assign {OP,Imm}  = ramdata;
+	 /* fetch */
+ 	 assign {OP,Imm}  = ramdata;
 
+	 /* decode */
 	 
 	 //decorder
 	 assign selectA = OP[0] | OP[3];
@@ -63,6 +65,7 @@ module TD4_core(
 							   OP[2] | ~OP[3],
 							  ~OP[2] |  OP[3],
                         OP[2] |  OP[3]	};
+	  /* execute */
 		
      //multiplexer
 	  function [3:0] mux;
@@ -82,6 +85,8 @@ module TD4_core(
 									{4'b0000,sw,reg_outB,reg_outA});
 	  //addr
 	  assign {carry,alu_out} = alu_inA + Imm;
+
+	 /* store */
 
 	 always @(posedge clock or negedge reset)
 		begin

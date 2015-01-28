@@ -1,0 +1,64 @@
+#　クロック信号
+
+NET "CLK_I"  LOC = "P63"  ;
+
+#　LED出力
+
+NET "LED_O<1>"  LOC = "P17"  ; 
+NET "LED_O<2>"  LOC = "P18"  ; 
+NET "LED_O<3>"  LOC = "P22"  ; 
+NET "LED_O<4>"  LOC = "P23"  ; 
+
+# スイッチ入力
+
+NET "SW1_I"  LOC = "P30"  ; 
+NET "SW2_I"  LOC = "P27"  ; 
+NET "SW3_I"  LOC = "P26" ; 
+NET "SW4_I"  LOC = "P24" ; 
+
+# 7セグメントLED・点灯有効ライン
+
+NET "DP1OEN_O" LOC = "P86";
+NET "DP2OEN_O" LOC = "P85"; 
+NET "DP3OEN_O" LOC = "P3";
+NET "DP4OEN_O" LOC = "P2";
+
+# 7セグメントLED・各エレメントLED
+
+NET "SEG_O<1>" LOC = "P94";
+NET "SEG_O<2>" LOC = "P92";
+NET "SEG_O<3>" LOC = "P98";
+NET "SEG_O<4>" LOC = "P71";
+NET "SEG_O<5>" LOC = "P70";
+NET "SEG_O<6>" LOC = "P90";
+NET "SEG_O<7>" LOC = "P91";
+NET "SEG_O<8>" LOC = "P95";
+
+#　ユーザ機能拡張コネクタ・入力専用ライン
+
+#NET "GPIN"  LOC = "P38"  ;
+
+#　ユーザ機能拡張コネクタ・入出力ライン
+
+#NET "GPIO<1>" LOC = "P32" ;
+#NET "GPIO<2>" LOC = "P33" ;
+#NET "GPIO<3>" LOC = "P35" ;
+#NET "GPIO<4>" LOC = "P36" ;
+#NET "GPIO<5>" LOC = "P40" ;
+#NET "GPIO<6>" LOC = "P41" ;
+#NET "GPIO<7>" LOC = "P47" ;
+#NET "GPIO<8>" LOC = "P48" ;
+#NET "GPIO<9>" LOC = "P49" ;
+#NET "GPIO<10>" LOC = "P53" ;
+#NET "GPIO<11>" LOC = "P54" ;
+#NET "GPIO<12>" LOC = "P57" ;
+#NET "GPIO<13>" LOC = "P58" ;
+#NET "GPIO<14>" LOC = "P60" ;
+#NET "GPIO<15>" LOC = "P61" ;
+
+#　RS-232Cシリアルポート
+
+#NET "TxD" LOC = "P83" ;
+#NET "RxD" LOC = "P79" ;
+
+#
