@@ -135,31 +135,7 @@ module ram16(
 		 //ram
 	reg [7:0] ram [15:0];
 	
-	assign data = regfile(addr);
-	
-	function [7:0] regfile;
-		input [3:0] addr;
-		begin
-			case(addr)
-				4'h0: regfile = ram[0];
-				4'h1: regfile = ram[1];
-				4'h2: regfile = ram[2];
-				4'h3: regfile = ram[3];
-				4'h4: regfile = ram[4];
-				4'h5: regfile = ram[5];
-				4'h6: regfile = ram[6];
-				4'h7: regfile = ram[7];
-				4'h8: regfile = ram[8];
-				4'h9: regfile = ram[9];
-				4'hA: regfile = ram[10];
-				4'hB: regfile = ram[11];
-				4'hC: regfile = ram[12];
-				4'hD: regfile = ram[13];
-				4'hE: regfile = ram[14];
-				4'hF: regfile = ram[15];
-			endcase
-		end
-	 endfunction
+	assign data = ram[addr];
 	
 	initial begin
 		   ram[0]  <= 8'b10110111; 
