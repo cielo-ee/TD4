@@ -133,7 +133,7 @@ module ram16(
 	output [7:0] data;
 	
 		 //ram
-	reg [7:0] ram [15:0];
+	wire [7:0] ram [15:0];
 	
 	assign data = ram[addr];
 	
