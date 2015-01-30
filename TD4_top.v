@@ -137,6 +137,24 @@ module ram16(
 	
 	assign data = ram[addr];
 	
+	assign ram[0]  = 8'b10110111; 
+	assign ram[1]  = 8'b00000001; 
+	assign ram[2]  = 8'b11100001; 
+	assign ram[3]  = 8'b00000001; 
+	assign ram[4]  = 8'b11100011; 
+	assign ram[5]  = 8'b10110110; 
+	assign ram[6]  = 8'b00000001; 
+	assign ram[7]  = 8'b11100110; 
+	assign ram[8]  = 8'b00000001; 
+	assign ram[9]  = 8'b11101000; 
+	assign ram[10] = 8'b10110000; 
+	assign ram[11] = 8'b10110100; 
+	assign ram[12] = 8'b00000001;
+	assign ram[13] = 8'b11101010; 
+	assign ram[14] = 8'b10111000; 
+	assign ram[15] = 8'b11111111; 
+
+/*	
 	initial begin
 		   ram[0]  <= 8'b10110111; 
 			ram[1]  <= 8'b00000001; 
@@ -154,6 +172,7 @@ module ram16(
 			ram[13] <= 8'b11101010; 
 			ram[14] <= 8'b10111000; 
 			ram[15] <= 8'b11111111; 
+			*/
 			/*
 			ram[0]  <= 8'b00111100; // mov A 1100 
 			ram[1]  <= 8'b00110110; // mov A 0110
@@ -173,6 +192,6 @@ module ram16(
 			ram[13] <= 8'b00001111; // add A 1111 
 			ram[14] <= 8'b11100010; // jnc 0010
          ram[15] <= 8'b10111010; // out 1010 */
-		end
+//		end
 	
 endmodule
