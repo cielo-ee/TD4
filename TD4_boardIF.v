@@ -18,6 +18,7 @@ module TD4_boardIF(
 		DP3OEN_O,
 		DP4OEN_O
     );
+	 
 
 	input CLK_I;
 	input SW1_I;
@@ -39,9 +40,25 @@ module TD4_boardIF(
 	wire [3:0] LED;
 	assign {LED4_O,LED3_O,LED2_O,LED1_O} = LED;
 	
+	//‰¼
+	assign DP1OEN_O = 1'b0;
+	assign DP2OEN_O = 1'b0;
+	assign DP3OEN_O = 1'b0;
+	assign DP4OEN_O = 1'b0;
+	
+	wire   CLK2_I;
+	assign CLK2_I = CLK_I;
+	
+	//‰¼
+	always @(negedge SW1_I)
+	begin
+		SEG_O <= 8'b00000000;
+	end
+	
+	
 	//clock‚ð1Hz‚É•ÏŠ·
 	normClkGenerator clkgen(
-		.clk_in(CLK_I),
+		.clk_in(CLK2_I),
 		.reset_n(SW1_I),
 		.clk_out(TD4_CLK)
 	);

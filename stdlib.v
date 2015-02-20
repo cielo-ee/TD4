@@ -64,21 +64,23 @@ module normClkGenerator(
 	reset_n,
 	clk_out
 	);
-	parameter [31:1] param_05Second = 32'h00FBC520; //33MHz‚Å0.5•b
+//	parameter [31:1] param_05Second = 32'h00FBC520; //33MHz‚Å0.5•b
+	parameter [31:0] param_05Second = 32'h00000100;
+//	parameter [31:0] param_05Second = 32'h00FBC520;
 
 	input clk_in;
 	input reset_n;
 	output clk_out;
 	
 	
-	reg [7:0] interreg;
+	reg [31:0] interreg;
 	reg clk_out;
 	
 	always @(posedge clk_in or negedge reset_n)
 	begin
 		if(~reset_n) begin
-
-			clk_out  <=0;
+			interreg <= 32'h00000000;
+			clk_out  <= 1'b0;
 		end 
 		else if(interreg == param_05Second) begin
 		   interreg <= 32'h00000000;
