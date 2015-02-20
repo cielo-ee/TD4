@@ -65,8 +65,8 @@ module normClkGenerator(
 	clk_out
 	);
 //	parameter [31:1] param_05Second = 32'h00FBC520; //33MHz‚Å0.5•b
-	parameter [31:0] param_05Second = 32'h00000100;
-//	parameter [31:0] param_05Second = 32'h00FBC520;
+//	parameter [31:0] param_05Second = 32'h00000100;
+	parameter [31:0] param_05Second = 32'h00FBC520;
 
 	input clk_in;
 	input reset_n;
